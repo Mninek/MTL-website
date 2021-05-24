@@ -37,3 +37,27 @@
     }
   }
   
+.container {
+    position: absolute;
+    height: 40vh;
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.draft {
+    padding-bottom: 5px;
+}
+
+.randomizer {
+    padding-bottom: 5px;
+}
+
+.randomRoll {
+    padding-bottom: 5px;
+}
+
+.stats {
+    padding-bottom: 5px;
+}
