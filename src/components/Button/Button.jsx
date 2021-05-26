@@ -3,7 +3,7 @@ import "./Button.css";
 
 const STYLES = [
     "btn--primary--solid",
-    "btn--warning--solid",
+    "btn--roll--solid",
     "btn--danger--solid",
     "btn--success--solid"
 ]

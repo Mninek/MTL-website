@@ -17,7 +17,7 @@ const MenuItems = [
     },
     {
         title: 'Random Unit',
-        url: '#',
+        url: '/randomRoll',
         cName: 'nav-links'
     },
     {

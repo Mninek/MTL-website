@@ -6,16 +6,23 @@
     font-family: sans-serif;
     font-weight: 400;
     border-radius: 10px;
-    border: 2px black;
+    border: solid black;
     border-color: black;
+    border-width: 1 1px;
     cursor: pointer;
     background-color: white;
     transition: transform 0.3s ease;
     padding: 8px 20px;
     width: 250px;
+    
 }
 
 .btn:hover {
     /*up on Y is negative*/
     transform: translateY(-3px);
+}
+
+.btn--roll--solid {
+    
+    background-color: pink;
 }

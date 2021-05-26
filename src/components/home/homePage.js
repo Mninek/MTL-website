@@ -4,11 +4,20 @@ import MTLLogo from '../images/MTLLogo'
 import {Button} from '../Button/Button'
 
 function homePage() {
+
+    const routeDraft = () => {
+        window.location.href = '/draft';
+    }
+
+    const routeRandomRoll = () => {
+        window.location.href = '/randomRoll'
+    }
+
     return (
         <div className="homePage">
         <MTLLogo />
             <div className="container">
-                <div className="draft">
+                <div className="draft" onClick={routeDraft}>
                     <Button>
                         Draft Pick
                     </Button>
@@ -18,7 +27,7 @@ function homePage() {
                         Random Team Rolls
                     </Button>
                 </div>
-                <div className="randomRoll">
+                <div className="randomRoll" onClick={routeRandomRoll}>
                     <Button>
                         Random Unit
                     </Button>
