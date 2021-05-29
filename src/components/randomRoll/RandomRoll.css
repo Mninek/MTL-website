@@ -3,3 +3,23 @@
     text-align: center;
     margin: 20px;
 }
+
+.pUnit {
+    color: rgb(238, 178, 13);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.tUnit {
+    color: #4169e1;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.zUnit {
+    color: hsl(269, 73%, 43%);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+/* Tooltip text */
+.pHover {
+    text-decoration: underline;
+}

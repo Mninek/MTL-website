@@ -38,7 +38,7 @@ class NavBar extends Component {
         return (
             <nav className="Navbar">
                 <Link to='/' className="menu-icon">
-                    MTLGGEZ
+                    MTLGGEZL
                 </Link>
                 <ul className ='nav-menu'>
                     {MenuItems.map((item, index) => {
