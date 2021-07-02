@@ -2,6 +2,11 @@
     font: bold 15px arial;
     text-align: center;
     margin: 20px;
+    cursor: url('../../art/trump.png'), auto !important;
+}
+
+a{
+cursor: url('../../art/clinton.png'), pointer !important;
 }
 
 .pUnit {

@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import emojiCursor from './components/customCursor/emojiCursor';
+
+emojiCursor()
 
 ReactDOM.render(
   <React.StrictMode>

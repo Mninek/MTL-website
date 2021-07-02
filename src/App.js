@@ -7,16 +7,21 @@ import homePage from './components/home/homePage'
 import Draft from './components/draft/Draft'
 import NavBar from './components/navBar/navBar'
 import RandomRoll from './components/randomRoll/RandomRoll'
+import {PlayBackGroundMusic} from './audio/PlayBackGroundMusic';
 
 function App() {
+
   return (
-    <Router >
+    
+    <Router>
+      <div className='test' onMouseMove={e => this.handleMouseMove(e)}></div>
       <NavBar />
       <Switch>
         <Route path='/' exact component={homePage} />
         <Route path='/draft' exact component={Draft}/>
         <Route path='/randomRoll' exact component={RandomRoll}/>
       </Switch>
+      <PlayBackGroundMusic />
     </Router>
   );
 }

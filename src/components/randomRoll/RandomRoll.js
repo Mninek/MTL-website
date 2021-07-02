@@ -33,7 +33,6 @@ class RandomRoll extends React.Component {
                 Monobattle Random Unit Generator
                 <div className="RGU">
                     <h1 className="pUnit">{this.state.unitJson.protossUnit}</h1>
-                    <span className="pHover">Pro tip! To monobattle with this unit, only build {this.state.unitJson.protossUnit}</span>
                     <h2 className="tUnit">{this.state.unitJson.zergUnit}</h2>
                     <h3 className="zUnit">{this.state.unitJson.terranUnit}</h3>
                 </div>

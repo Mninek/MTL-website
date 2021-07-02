@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button} from '../Button/Button'
 import {Link} from 'react-router-dom';
+import {PlayBackGroundMusic} from '../../audio/PlayBackGroundMusic';
 
 import './navBar.css'
 
@@ -24,7 +25,7 @@ const MenuItems = [
         title: 'Unit Stats',
         url: '#',
         cName: 'nav-links'
-    }
+    },
 ]
 
 class NavBar extends Component {

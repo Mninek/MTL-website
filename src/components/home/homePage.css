@@ -1,6 +1,12 @@
 .homePage {
     text-align: center;
+    cursor: url('../../art/bushCursor.png'), auto !important;
   }
+
+  a{
+    cursor: url('../../art/biden.png'), pointer !important;
+  }
+  
   
   .homePage-logo {
     height: 40vmin;

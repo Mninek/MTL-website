@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+    cursor: url('../../art/knight.png'), auto !important;
 }
 
 .menu-icon {
