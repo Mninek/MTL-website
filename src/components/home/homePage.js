@@ -13,6 +13,10 @@ function homePage() {
         window.location.href = '/randomRoll'
     }
 
+    const routeRandom = () => {
+        window.location.href ='/random'
+    }
+
     return (
         <div className="homePage">
         <MTLLogo />
@@ -22,7 +26,7 @@ function homePage() {
                         Draft Pick
                     </Button>
                 </div>
-                <div className="randomizer">
+                <div className="randomizer" onClick={routeRandom}>
                     <Button>
                         Random Team Rolls
                     </Button>

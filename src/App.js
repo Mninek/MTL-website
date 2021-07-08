@@ -7,7 +7,8 @@ import homePage from './components/home/homePage'
 import Draft from './components/draft/Draft'
 import NavBar from './components/navBar/navBar'
 import RandomRoll from './components/randomRoll/RandomRoll'
-import {PlayBackGroundMusic} from './audio/PlayBackGroundMusic';
+import Random from './components/random/Random'
+import {PlayBackGroundMusic} from './audio/PlayBackGroundMusic'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Switch>
         <Route path='/' exact component={homePage} />
         <Route path='/draft' exact component={Draft}/>
+        <Route path='/random' exact component={Random}/>
         <Route path='/randomRoll' exact component={RandomRoll}/>
       </Switch>
       <PlayBackGroundMusic />

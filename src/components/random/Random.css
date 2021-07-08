@@ -1,0 +1,65 @@
+.container {
+    display: inline-block;
+    width: 100%;
+}
+
+.team1 {
+    display: inline-block;
+}
+
+.team2 {
+    margin-left: 25%;
+    display: inline-block;
+}
+
+.row {
+    padding: 1px;
+    margin-right: 20px;
+}
+
+.inputBox {
+    padding: 1px;
+    width: 80px;
+}
+
+.selectButton {
+    padding: 1px;
+    height: 40px;
+    width: 50px;
+}
+
+.bottomText {
+    border-width: 2px;
+    border-color: purple;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
+    border-style: solid;
+    width: 500px;
+    text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.numGames {
+    padding: 1px;
+    height: 40px;
+    width: 200px;
+}
+
+.unitTable {
+    border: 1px solid black;
+    
+}
+
+.unitTableEntry {
+    border: 1px solid black;
+    width: 250px;
+}
+
+.parent {
+    padding-bottom: 10%;
+}
