@@ -1,0 +1,2 @@
+release: python mtl-server/manage.py migrate
+web: gunicorn mtl-server/mtlserver.wsgi --log-file -
