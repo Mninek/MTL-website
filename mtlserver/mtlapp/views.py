@@ -41,9 +41,9 @@ def getTeamsRandomRoll(request, id=1):
                 if races[i] == 'P':
                     curr["unit" + str(j)] = units[0]
                 elif races[i] == 'Z':
-                    curr["unit" + str(j)] = units[1]
-                elif races[i] == 'T':
                     curr["unit" + str(j)] = units[2]
+                elif races[i] == 'T':
+                    curr["unit" + str(j)] = units[1]
                 else:
                     curr["unit" + str(j)] = ",".join(units)
             jsonReturn["p" + str(i)] = curr

@@ -14,7 +14,7 @@ export const PlayBackGroundMusic = (
             <button onClick={() =>setIsPlaying(!isPlaying)} >{!isPlaying ?'Play' : 'Stop'}</button>
             <Sound 
                 url={terransong}
-                volume={15}
+                volume={8}
                 loop={true}
                 playStatus={
                     //isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
