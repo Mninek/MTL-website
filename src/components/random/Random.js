@@ -2,26 +2,83 @@ import React, {useState} from 'react';
 import Select from 'react-select';
 import './Random.css'
 import {Button} from '../Button/Button'
+import { render } from 'react-dom';
+//import io from './components/random/socket/node_modules/socket.io-adapter';
+import {socket} from "../../socketConstant";
+
+//import io from './socket/node_modules/socket.io-client';
 
 function Random() {
 
     const [error, setError] = useState(false);
-
     const [nGames, setnGames] = useState(false);
-
     const [apiCall, setapiCall] = useState(false);
-
     const [numGames, setNumGames] = useState(0);
-
     const [teamOne, setTeamOne] = useState([]);
-
     const [teamTwo, setTeamTwo] = useState([]);
-
     const [names, setNames] = useState(['0','1','2','3','4','5','6','7']);
-
     const [races, setRaces] = useState(['N','N','N','N','N','N','N','N']);
+    const [fourGamers, setFourGamers] = useState(true);
+    const [nGamers, setnGamers] = useState(false);
+    const [noRoomcodeError, setNoRoomcodeError] = useState(true);
+    const [joinError, setJoinError] = useState(false);
+    const [roomCode, setRoomCode] = useState('test');
+    const [selectError, setSelectError] = useState(false);
+    const [transfer, setTransfer] = useState(true);
 
-    const test_num_players = 4;
+    //const socket = io('http://localhost:8080');
+    socket.on('joinRoomSignal', handleJoinRoomSignal);
+    socket.on('setTeams', handleSetTeams);
+
+    const updateGamers = (e) => {
+        if (e.value == 3){
+            setFourGamers(false);
+        } else {
+            setFourGamers(true);
+        }
+        setnGamers(true);
+    }
+    const playerNumOptions = [
+        //{value: "3", label: "3"}, only 4 allowed for now
+        {value: "4", label: "4"}
+    ];
+    
+    const setCode = (code) => {
+        var tempCode = code;
+        setRoomCode(tempCode);
+        if (code.length == 6){
+            //make sure that this is a valid roomCode
+            setNoRoomcodeError(false);
+        } else {
+            setNoRoomcodeError(true);
+        }
+    }
+
+    const joinRoom = () => {
+        if (noRoomcodeError){
+            setJoinError(true)
+        } else{
+            socket.emit('joinRoom', roomCode);
+        }
+    }
+
+    const createRoom = () => {
+        if (nGamers){
+            //generate a room code, and then pass the number of gamers and room code to Random class
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = 62; //manuually counted characters LOL
+            for (var i = 0; i < 6; i++){
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            setRoomCode(result);
+            socket.emit('createRoom', result);
+            setTransfer(false);
+        } else {
+            setSelectError(true);
+        }
+    }
+
 
     const raceOptions = [
         {value: 'P', label: 'P'},
@@ -65,6 +122,7 @@ function Random() {
         var tempNames = names;
         tempNames[index] = name;
         setNames(tempNames);
+        socket.emit('setNameSignal', tempNames,)
     }
 
     const rollForTeams = () => {
@@ -96,23 +154,84 @@ function Random() {
                 setapiCall(true);
                 setTeamOne(tempTeamOne);
                 setTeamTwo(tempTeamTwo);
+                socket.emit('rollForTeams', {'apiCall': true, 'teamOne': tempTeamOne, 'teamTwo' : tempTeamTwo, 'names' : names, 'roomCode' : roomCode});
             });
         }
     }
 
-    if (test_num_players == 3){
-        return (
-            <div className="container">
-                placeholder draft
-                <Select className="selectButton"
-                    options = {raceOptions} 
-                    components = {{ DropdownIndicator: () => null, IndicatorSeperator:() => null}}
-                />
+    /*
+    const generateRoomCode = () => {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = caracters.length;
+        for (var i = 0; i < length; i++){
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        setRoomCode(result);
+    }
+    */
+
+    function sleep(ms) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    }
+
+    function handleJoinRoomSignal(val){
+        console.log(val);
+        if(val){
+            setTransfer(false);
+            sleep(1);
+            setJoinError(false);
+        } else {
+            setJoinError(true);
+        }
+    }
+
+    function handleSetTeams(args){
+        setapiCall(args['apiCall']);
+        setTeamOne(args['teamOne']);
+        setTeamTwo(args['teamTwo']);
+        setNames(args['names'])
+        console.log("apiCall below");
+        console.log(apiCall);
+    }
+
+    return (
+        transfer ? <div className="container">
+            <div className="top">
+                <input type="text" placeholder="RoomCode" className="inputBoxCode" onChange={event => setCode(event.target.value)}/>
+                <Button onClick={joinRoom}>
+                    Join a room
+                </Button>
+                {joinError &&
+                    <p className="errorMessage">
+                        Please enter a valid room code
+                    </p>
+                }
             </div>
-        )
-    } else if (test_num_players == 4){
-        return (
+            <div className="bottom">
+                <p className="text">
+                    Enter your opponents room code above, or select the number of gamers per team and create a new room below
+                </p>
+                <Select className="selectButtonGamers"
+                    options = {playerNumOptions} 
+                    components = {{ DropdownIndicator: () => null, IndicatorSeperator:() => null}}
+                    onChange={(val)=> {updateGamers({value: val.value})}}
+                />
+                <Button onClick={createRoom}>
+                    Create room
+                </Button>
+                {selectError &&
+                    <p className="errorMessage">
+                        Please select number of gamers per team
+                    </p>
+                }
+            </div>
+        </div> :
+        fourGamers ?
             <div className="container">
+                <div className="roomCodeDiv">Roomcode: {roomCode}</div>
                 <div className="team1">
                     Team 1
                     <div className="row">
@@ -195,7 +314,7 @@ function Random() {
                     <Select className="numGames"
                             options = {games} 
                             components = {{ DropdownIndicator: () => null, IndicatorSeperator:() => null}}
-                            defaultValue={{label: "Number of units", value: 0}}
+                            defaultValue={{label: "Number of games", value: 0}}
                             onChange={(val)=> {updateGames({value: val.value})}}
                         />                    
                     <p className="bottomText">
@@ -206,7 +325,7 @@ function Random() {
                     </Button>
                     {error &&
                         <p className="errorMessage">
-                            Please select a race and number of units
+                            Please select a race and number of games to roll for
                         </p>
                     }
                 </div>
@@ -255,9 +374,15 @@ function Random() {
                     </div>
                 }
             </div>
-        )
-    }
-
+        :
+            <div className="container">
+                placeholder draft
+                <Select className="selectButton"
+                    options = {raceOptions} 
+                    components = {{ DropdownIndicator: () => null, IndicatorSeperator:() => null}}
+                />
+            </div>
+    )
 }
 
 export default Random;

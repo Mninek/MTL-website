@@ -10,7 +10,11 @@ import RandomRoll from './components/randomRoll/RandomRoll'
 import Random from './components/random/Random'
 import {PlayBackGroundMusic} from './audio/PlayBackGroundMusic'
 
+
 function App() {
+
+  //so that socket can be accessed anywhere
+  
 
   return (
     
@@ -20,8 +24,9 @@ function App() {
       <Switch>
         <Route path='/' exact component={homePage} />
         <Route path='/draft' exact component={Draft}/>
-        <Route path='/random' exact component={Random}/>
+        <Route path='/randomHelper' exact component={Random}/>
         <Route path='/randomRoll' exact component={RandomRoll}/>
+        <Route path='/random' exact component={Random}/>
       </Switch>
       <PlayBackGroundMusic />
     </Router>

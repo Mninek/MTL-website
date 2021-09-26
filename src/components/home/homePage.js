@@ -14,7 +14,7 @@ function homePage() {
     }
 
     const routeRandom = () => {
-        window.location.href ='/random'
+        window.location.href ='/randomHelper'
     }
 
     return (

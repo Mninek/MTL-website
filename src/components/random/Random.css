@@ -63,3 +63,23 @@
 .parent {
     padding-bottom: 10%;
 }
+
+.selectButtonGamers {
+    padding: 1px;
+    height: 40px;
+    width: 150px;
+}
+
+.top {
+    
+    display: inline-block;
+}
+
+.bottom {
+    display: inline-block;
+}
+
+.inputBoxCode{
+    padding: 1px;
+    width: 100px;
+}

@@ -13,7 +13,7 @@ const MenuItems = [
     },
     {
         title: 'Random Teams',
-        url: '/random',
+        url: '/randomHelper',
         cName: 'nav-links'
     },
     {
