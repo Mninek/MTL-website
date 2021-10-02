@@ -1,0 +1,7 @@
+.Draft {
+    cursor: url('../../art/obama.png'), auto !important;
+}
+
+a{
+    cursor: url('../../art/ted.png'), pointer !important;
+}

@@ -1,0 +1,46 @@
+.Navbar {
+    background: linear-gradient(90deg, rgb(90, 90, 90) 0%, rgba(61, 61, 61, 1) 100%);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: url('../../art/knight.png'), auto !important;
+}
+
+.menu-icon {
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    color: rgb(192, 17, 17);
+    font-size: 150%;
+}
+
+.menu-icon:hover {
+    background-color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease-out;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 30px;
+    list-style: none;
+    text-align: center;
+    width: 100vw;
+    justify-content: end;
+    margin-right: 2rem;
+    font-size: 120%;
+}
+
+.nav-links {
+    color: rgb(192, 17, 17);
+    text-decoration: none;
+}
+
+.nav-links:hover {
+    background-color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease-out;
+}

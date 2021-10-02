@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'mtlapp',
-    'rest_framework'
+    'rest_framework',
+    'whitenoise.runserver_nostatic',
+    #'channels',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -54,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'mtlserver.urls'
@@ -62,7 +65,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'r')
+            os.path.join(Path(__file__).resolve().parent.parent, 'mtlserver/build')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,6 +129,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(Path(__file__).resolve().parent.parent, 'mtlserver/build')
 
-STATIC_URL = '/static/'
+STATICFILES_DIRS = [STATIC_ROOT + '/static']
+
+TATICFILES_STORAGE = (
+    'whitenoise.storage.CompressedManifestStaticFilesStorage')
+
+TATIC_ROOT = BASE_DIR / 'static'
+
+STATIC_URL = '/static/'  # already declared in the default settings
+
+WHITENOISE_ROOT = STATIC_ROOT
