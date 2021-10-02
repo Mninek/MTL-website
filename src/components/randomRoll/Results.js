@@ -11,7 +11,7 @@ function Results() {
     ]
 
     function updateUnits(){
-        fetch(process.env.REACT_APP_MTL_API+'randomRoll')
+        fetch(process.env.REACT_APP_MTL_API+'api/randomRoll')
         .then((response)=>response.json())
         .then((data)=>{
             unitJson = data;

@@ -137,7 +137,7 @@ function Random() {
                     numGames: JSON.stringify(numGames)
                 })
             }
-            fetch(process.env.REACT_APP_MTL_API+'teamsRandomRoll/', requestOptions)
+            fetch(process.env.REACT_APP_MTL_API+'api/teamsRandomRoll/', requestOptions)
             .then((response)=>response.json())
             .then((data)=>{
                 tempTeamOne = []
