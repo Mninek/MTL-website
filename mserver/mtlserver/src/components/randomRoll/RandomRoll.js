@@ -25,6 +25,7 @@ class RandomRoll extends React.Component {
         .then((data)=>{
             this.setState({unitJson: data});
             console.log(this.unitJson);
+            console.log(process.env);
         });
     }
     render () {
