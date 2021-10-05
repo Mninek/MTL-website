@@ -3,7 +3,6 @@ import Select from 'react-select';
 import './Random.css'
 import {Button} from '../Button/Button'
 import { render } from 'react-dom';
-import {socket} from "../../socketConstant";
 
 
 function Random() {
@@ -23,10 +22,7 @@ function Random() {
     const [roomCode, setRoomCode] = useState('test');
     const [selectError, setSelectError] = useState(false);
     const [transfer, setTransfer] = useState(true);
-
-    socket.on('joinRoomSignal', handleJoinRoomSignal);
-    socket.on('setTeams', handleSetTeams);
-
+    
     const updateGamers = (e) => {
         if (e.value == 3){
             setFourGamers(false);

@@ -10,6 +10,7 @@ def randomRollAPI(request, id=1):
     if request.method=='GET':
         #protoss, zerg, terran
         li = rollUnits()
+        print(li)
         return JsonResponse({'protossUnit': li[0], 'zergUnit': li[1], 'terranUnit': li[2]})
 
 @csrf_exempt
