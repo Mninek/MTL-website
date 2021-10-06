@@ -24,6 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #re_path('api/', include('mtlapp.url')),
     url('api/randomRoll', views.randomRollAPI),
-    url(r'^api/teamsRandomRoll/$', views.getTeamsRandomRoll),
+    url('api/teamsRandomRoll', views.getTeamsRandomRoll),
     re_path('', TemplateView.as_view(template_name="index.html"))
 ]

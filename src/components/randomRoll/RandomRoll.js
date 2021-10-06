@@ -19,8 +19,8 @@ class RandomRoll extends React.Component {
     }
 
     updateUnits = () => {
-        console.log(process.env.REACT_APP_MTL_API+'api/randomRoll')
-        fetch(process.env.REACT_APP_MTL_API+'api/randomRoll')
+        console.log(process.env.MTL_API+'api/randomRoll')
+        fetch(process.env.MTL_API+'api/randomRoll')
         .then((response)=>response.json())
         .then((data)=>{
             this.setState({unitJson: data});

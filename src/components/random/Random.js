@@ -22,7 +22,7 @@ function Random() {
     const [roomCode, setRoomCode] = useState('test');
     const [selectError, setSelectError] = useState(false);
     const [transfer, setTransfer] = useState(true);
-    
+
     const updateGamers = (e) => {
         if (e.value == 3){
             setFourGamers(false);
@@ -133,7 +133,7 @@ function Random() {
                     numGames: JSON.stringify(numGames)
                 })
             }
-            fetch(process.env.REACT_APP_MTL_API+'api/teamsRandomRoll/', requestOptions)
+            fetch(process.env.MTL_API+'api/teamsRandomRoll/', requestOptions)
             .then((response)=>response.json())
             .then((data)=>{
                 tempTeamOne = []
