@@ -9,6 +9,7 @@ import NavBar from './components/navBar/navBar'
 import RandomRoll from './components/randomRoll/RandomRoll'
 import Random from './components/random/Random'
 import {PlayBackGroundMusic} from './audio/PlayBackGroundMusic'
+import wheel from './components/wheel/wheel'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/randomHelper' exact component={Random}/>
         <Route path='/randomRoll' exact component={RandomRoll}/>
         <Route path='/random' exact component={Random}/>
+        <Route path='/wheel' exact component={wheel}/>
       </Switch>
       <PlayBackGroundMusic />
     </Router>

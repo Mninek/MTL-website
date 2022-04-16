@@ -17,6 +17,10 @@ function homePage() {
         window.location.href ='/randomHelper'
     }
 
+    const wheel = () => {
+        window.location.href ='/wheel'
+    }
+
     return (
         <div className="homePage">
         <MTLLogo />
@@ -39,6 +43,11 @@ function homePage() {
                 <div className = "stats">
                     <Button>
                         Unit Statistics
+                    </Button>
+                </div>
+                <div className = "wheel" onClick={wheel}>
+                    <Button>
+                        The Wheel
                     </Button>
                 </div>
             </div>

@@ -1,0 +1,93 @@
+{
+  "_from": "react-wheel-of-prizes@^1.0.9",
+  "_id": "react-wheel-of-prizes@1.0.9",
+  "_inBundle": false,
+  "_integrity": "sha512-aqRfC8+RZwRPp3fJMmcefxLpRfV3dEfaLZP0NQhwy7vXpf0zuaxesZ+Ut5yFkWyzTuxI3b/qKVbtBB1Yy6OePw==",
+  "_location": "/react-wheel-of-prizes",
+  "_phantomChildren": {
+    "regenerator-runtime": "0.13.7"
+  },
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "react-wheel-of-prizes@^1.0.9",
+    "name": "react-wheel-of-prizes",
+    "escapedName": "react-wheel-of-prizes",
+    "rawSpec": "^1.0.9",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.9"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-wheel-of-prizes/-/react-wheel-of-prizes-1.0.9.tgz",
+  "_shasum": "3458b68668f5ef1e732949d28608a0af62e9e415",
+  "_spec": "react-wheel-of-prizes@^1.0.9",
+  "_where": "E:\\mtl_website\\mtl-website",
+  "author": {
+    "name": "shekharramola"
+  },
+  "bugs": {
+    "url": "https://github.com/shekharramola/react-wheel-of-prizes/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@babel/runtime": "^7.15.4"
+  },
+  "deprecated": false,
+  "description": "It is a wheel of prizes game build using reactjs",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-standard": "^4.1.0",
+    "gh-pages": "^2.2.0",
+    "microbundle-crl": "^0.13.11",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^3.4.4"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/shekharramola/react-wheel-of-prizes#readme",
+  "license": "GNU General Public License v3.0",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "name": "react-wheel-of-prizes",
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shekharramola/react-wheel-of-prizes.git"
+  },
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "deploy": "gh-pages -d example/build",
+    "predeploy": "cd example && npm install && npm run build",
+    "prepublish": "run-s build",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "test": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom"
+  },
+  "source": "src/index.js",
+  "version": "1.0.9"
+}

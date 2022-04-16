@@ -26,6 +26,11 @@ const MenuItems = [
         url: '#',
         cName: 'nav-links'
     },
+    {
+        title: 'The Wheel',
+        url: '/wheel',
+        cName: 'nav-links'
+    },
 ]
 
 class NavBar extends Component {
