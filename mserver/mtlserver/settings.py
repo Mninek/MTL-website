@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'mtlapp',
     'rest_framework',
     'whitenoise.runserver_nostatic',
-    'channels',
+    #'channels',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
