@@ -2,7 +2,7 @@
   "name": "mtl-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "http://.",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
@@ -42,5 +42,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "To make changes (because I'm bad at web dev):",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mninek/MTL-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mninek/MTL-website/issues"
   }
 }

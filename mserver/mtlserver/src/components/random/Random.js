@@ -51,7 +51,7 @@ function Random() {
         if (noRoomcodeError){
             setJoinError(true)
         } else{
-            //socket.emit('joinRoom', roomCode);
+            setWebSocket(new WebSocket(window.location.host + '\\' + result + '\\'))
         }
     }
 
@@ -192,21 +192,7 @@ function Random() {
 
     return (
         transfer ? <div className="container">
-            <div className="top">
-                <input type="text" placeholder="RoomCode" className="inputBoxCode" onChange={event => setCode(event.target.value)}/>
-                <Button onClick={joinRoom}>
-                    Join a room
-                </Button>
-                {joinError &&
-                    <p className="errorMessage">
-                        Please enter a valid room code
-                    </p>
-                }
-            </div>
             <div className="bottom">
-                <p className="text">
-                    Enter your opponents room code above, or select the number of gamers per team and create a new room below
-                </p>
                 <Select className="selectButtonGamers"
                     options = {playerNumOptions} 
                     components = {{ DropdownIndicator: () => null, IndicatorSeperator:() => null}}
